@@ -31,7 +31,7 @@ Function Connect-VKE {
 
     Param (
 
-        [parameter(Mandatory=$true)]
+        [parameter(Mandatory=$false)]
         [ValidateNotNullOrEmpty()]
         [String]$Endpoint="https://api.vke.cloud.vmware.com/",
 
