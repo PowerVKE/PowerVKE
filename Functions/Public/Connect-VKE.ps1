@@ -37,7 +37,7 @@ Function Connect-VKE {
         [String]$OrgId  
     )   
     
-$Endpoint="https://api.vke.cloud.vmware.com/
+$Endpoint="https://api.vke.cloud.vmware.com"
 
 Get-CSPAccessToken -RefreshToken $Token 
 
