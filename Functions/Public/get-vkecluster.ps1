@@ -27,5 +27,5 @@ invoke
         throw
 
     }
-    Write-Output "Connected." $VKEConnection
+    Write-Output $clusters.items
 }
