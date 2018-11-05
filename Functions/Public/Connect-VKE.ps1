@@ -20,6 +20,7 @@ function Connect-VKE {
     System.String
 
     .OUTPUTS
+
  
     .EXAMPLE
  
@@ -31,7 +32,7 @@ function Connect-VKE {
 
         [parameter(Mandatory=$true)]
         [ValidateNotNullOrEmpty()]
-        [String]$Endpoint,
+        [String]$Endpoint="https://api.vke.cloud.vmware.com/",
 
         [parameter(Mandatory=$true)]
         [ValidateNotNullOrEmpty()]
