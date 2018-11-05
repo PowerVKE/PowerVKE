@@ -16,9 +16,14 @@ Function get-vkecluster {
  #>
 
 $btoken = "Bearer " + $Global:VKEConnection.APIToken.access_token  
+[string]$uri = $Global:VKEConnection.Endpoint
+[string]$org = $Global:VKEConnection.OrgId
 
 try {
-$clusters = (Invoke-WebRequest -Uri "$uri/v1/orgs/$Global:VKEConnection.OrgId/clusters" -Method GET -ContentType "application/json" -UseBasicParsing -Headers @{"Authorization"=$btoken} | ConvertFrom-json)
+
+$cool_shit = (Invoke-WebRequest -Uri $uri/v1/orgs/$org/clusters -Method GET -ContentType "application/json" -UseBasicParsing -Headers @{"Authorization"=$btoken} | ConvertFrom-json)
+
+
 
      
     }
@@ -27,5 +32,5 @@ $clusters = (Invoke-WebRequest -Uri "$uri/v1/orgs/$Global:VKEConnection.OrgId/cl
         throw
 
     }
-    Write-Output $clusters.items
+    Write-Output $cool_shit.items
 }
