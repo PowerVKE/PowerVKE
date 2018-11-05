@@ -8,9 +8,6 @@ Function Connect-VKE {
     .DESCRIPTION
     Connect to VMware VKE API Endpoint VMware Cloud Services and recieve an API token. 
     
-    .PARAMETER Endpoint
-    VKE Endpoint to connect to.
-    
     .PARAMETER Token
     Refresh Token for VKE.
 
@@ -31,10 +28,6 @@ Function Connect-VKE {
 
     Param (
 
-        [parameter(Mandatory=$false)]
-        [ValidateNotNullOrEmpty()]
-        [String]$Endpoint="https://api.vke.cloud.vmware.com/",
-
         [parameter(Mandatory=$true)]
         [ValidateNotNullOrEmpty()]
         [String]$Token,
@@ -42,7 +35,9 @@ Function Connect-VKE {
         [parameter(Mandatory=$true)]
         [ValidateNotNullOrEmpty()]
         [String]$OrgId  
-    )    
+    )   
+    
+$Endpoint="https://api.vke.cloud.vmware.com/
 
 Get-CSPAccessToken -RefreshToken $Token 
 
