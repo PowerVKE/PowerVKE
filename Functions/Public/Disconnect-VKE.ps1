@@ -1,45 +1,24 @@
-function Connect-VKE {
+function Disconnect-VKE {
 
 <#
     .SYNOPSIS
-    Connect to VMware VKE API Endpoint
-    
+    Disconnect from a VKE Endpoint
     .DESCRIPTION
-    Connect to VMware VKE API Endpoint VMware Cloud Services and recieve an API token. 
-    
-    .PARAMETER Endpoint
-    VKE Endpoint to connect to.
-    
-    .PARAMETER Token
-    Refresh Token for VKE.
-
-    .PARAMETER OrgId
-    Organisation ID for the VKE instance.
-    
-    .INPUTS
-    System.String
-
-    .OUTPUTS
-
- 
+    Disconnect from a VKE Endpoint by removing the authorization token and the global VKEConnection variable from PowerShell
     .EXAMPLE
- 
- #>
+    Disconnect-VKE
+    .EXAMPLE
+    Disconnect-VKE -Confirm:$false
+#>
 
-[CmdletBinding(DefaultParametersetName="Token")][OutputType('System.Management.Automation.PSObject')]
+[CmdletBinding(SupportsShouldProcess,ConfirmImpact="High")]
 
-    Param (
+    Param ()
 
-        [parameter(Mandatory=$true)]
-        [ValidateNotNullOrEmpty()]
-        [String]$Endpoint="https://api.vke.cloud.vmware.com/",
+    # --- Test for existing connection to VKE
 
-        [parameter(Mandatory=$true)]
-        [ValidateNotNullOrEmpty()]
-        [String]$Token,
+    if (-not $Global:VKEConnection){
 
-        [parameter(Mandatory=$true)]
-        [ValidateNotNullOrEmpty()]
-        [String]$OrgId  
-    )
+        throw "VKE Connection variable does not exist. Please run Connect-VKEConnection first to create it"
+    }
 }
