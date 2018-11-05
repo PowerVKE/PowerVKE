@@ -42,7 +42,7 @@ $Endpoint="https://api.vke.cloud.vmware.com"
 Get-CSPAccessToken -RefreshToken $Token 
 
 try {
-    $VKE_AUTH_ENDPOINT = (Invoke-WebRequest -Method GET -Uri https://$Endpoint/v1/system/auth | ConvertFrom-Json) 
+    $VKE_AUTH_ENDPOINT = (Invoke-WebRequest -Method GET -Uri $Endpoint/v1/system/auth | ConvertFrom-Json) 
     $VKE_AUTH_ENDPOINTv2 = $VKE_AUTH_ENDPOINT.endpoint
     $VKE_TOKEN_ENDPOINT = (Invoke-WebRequest -Method GET $VKE_AUTH_ENDPOINTv2/openidconnect/$OrgId/.well-known/openid-configuration | ConvertFrom-Json)                          
     $VKE_TOKEN_ENDPOINTv2 = $VKE_TOKEN_ENDPOINT.token_endpoint 
