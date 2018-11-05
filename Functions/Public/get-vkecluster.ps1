@@ -18,8 +18,8 @@ Function get-vkecluster {
 $btoken = "Bearer " + $Global:VKEConnection.APIToken.access_token  
 
 try {
-$clusters = Invoke-WebRequest -Uri "$uri/v1/orgs/$Global:VKEConnection.OrgId/clusters" -Method GET -ContentType "application/json" -UseBasicParsing -Headers @{"Authorization"=$btoken} | ConvertFrom-json)
-invoke
+$clusters = (Invoke-WebRequest -Uri "$uri/v1/orgs/$Global:VKEConnection.OrgId/clusters" -Method GET -ContentType "application/json" -UseBasicParsing -Headers @{"Authorization"=$btoken} | ConvertFrom-json)
+
      
     }
     catch [Exception]{
