@@ -8,7 +8,10 @@ PowerVKE was initially developed by a team at the VMworld Europe 2018 Hackathon.
 
 # Installing PowerVKE
 
-Installing PowerVKE as a module will be added in the next patch release 
+Installing PowerVKE as a module will be added in the next patch release
+
+1. Download and extract the latest release
+2. From the 'Module' folder, run "Import-Module .\PowerVKE.psm1"
 
 # Using PowerVKE
 
